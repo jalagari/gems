@@ -51,6 +51,7 @@
       "email",
       "fragment",
       "form-button",
+      "submit-button",
       "form-image"
     ]
   }
