@@ -249,7 +249,7 @@
           "plugins": {
             "xwalk": {
               "page": {
-                "resourceType": "core/fd/components/form/button/v1/submit",
+                "resourceType": "core/fd/components/form/actions/submit/v1/submit",
                 "template": {
                   "jcr:title": "Submit",
                   "buttonType": "submit",
