@@ -75,7 +75,7 @@ export function createLabel(fd, tagName = 'label') {
 }
 
 export function getHTMLRenderType(fd) {
-  return fd?.fieldType?.replace('-input', '') ?? 'text';
+  return fd?.properties?.edsType ? fd.properties.edsType : (fd?.fieldType?.replace('-input', '') ?? 'text');
 }
 
 export function createFieldWrapper(fd, tagName = 'div', labelFn = createLabel) {
