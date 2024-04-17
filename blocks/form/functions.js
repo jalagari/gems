@@ -20,7 +20,7 @@ function days(endDate, startDate) {
   const end = typeof endDate === 'string' ? new Date(endDate) : endDate;
 
   // return zero if dates are valid
-  if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) {
+  if (!start || !end || Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) {
     return 0;
   }
 
