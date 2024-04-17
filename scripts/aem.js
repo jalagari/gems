@@ -157,7 +157,12 @@ function setup() {
   const scriptEl = document.querySelector('script[src$="/scripts/scripts.js"]');
   if (scriptEl) {
     try {
-      [window.hlx.codeBasePath] = new URL(scriptEl.src).pathname.split('/scripts/scripts.js');
+      const scriptURL = new URL(scriptEl.src, window.location);
+      if (scriptURL.host === window.location.host) {
+        [window.hlx.codeBasePath] = scriptURL.pathname.split('/scripts/scripts.js');
+      } else {
+        [window.hlx.codeBasePath] = scriptURL.href.split('/scripts/scripts.js');
+      }
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log(error);
@@ -445,7 +450,7 @@ function decorateIcons(element, prefix = '') {
  * @param {Element} main The container element
  */
 function decorateSections(main) {
-  main.querySelectorAll(':scope > div').forEach((section) => {
+  main.querySelectorAll(':scope > div:not([data-section-status])').forEach((section) => {
     const wrappers = [];
     let defaultContent = false;
     [...section.children].forEach((e) => {
@@ -631,7 +636,7 @@ async function loadBlocks(main) {
  */
 function decorateBlock(block) {
   const shortBlockName = block.classList[0];
-  if (shortBlockName) {
+  if (shortBlockName && !block.dataset.blockStatus) {
     block.classList.add('block');
     block.dataset.blockName = shortBlockName;
     block.dataset.blockStatus = 'initialized';
@@ -639,6 +644,29 @@ function decorateBlock(block) {
     blockWrapper.classList.add(`${shortBlockName}-wrapper`);
     const section = block.closest('.section');
     if (section) section.classList.add(`${shortBlockName}-container`);
+    // wrap plain text and non-block elements in a <p> or <pre>
+    block.querySelectorAll(':scope > div > div').forEach((cell) => {
+      const firstChild = cell.firstElementChild;
+      const cellText = cell.textContent.trim();
+      if ((!firstChild && cellText)
+        || (firstChild && !firstChild.tagName.match(/^(P(RE)?|H[1-6]|(U|O)L|TABLE)$/))) {
+        const paragraph = document.createElement('p');
+        [...cell.attributes]
+          // move the instrumentation from the cell to the new paragraph, also keep the class
+          // in case the content is a buttton and the cell the button-container
+          .filter(({ nodeName }) => nodeName === 'class'
+            || nodeName.startsWith('data-aue')
+            || nodeName.startsWith('data-richtext'))
+          .forEach(({ nodeName, nodeValue }) => {
+            paragraph.setAttribute(nodeName, nodeValue);
+            cell.removeAttribute(nodeName);
+          });
+        paragraph.append(...cell.childNodes);
+        cell.replaceChildren(paragraph);
+      }
+    });
+    // eslint-disable-next-line no-use-before-define
+    decorateButtons(block);
   }
 }
 
