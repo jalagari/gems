@@ -28,5 +28,15 @@ function days(endDate, startDate) {
   return Math.floor(diffInMs / (1000 * 60 * 60 * 24));
 }
 
+/**
+ * 
+ * @param {*} arg1 
+ * @returns 
+ */
+function demoFun(arg1) {
+  return 'demo';
+
+}
+
 // eslint-disable-next-line import/prefer-default-export
 export { getFullName, days };
