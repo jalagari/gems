@@ -115,7 +115,13 @@
                 "resourceType": "core/fd/components/form/numberinput/v1/numberinput",
                 "template": {
                   "jcr:title": "Range Input",
-                  "fieldType": "range"
+                  "fieldType": "range",
+                  "fd:additionalCustomPropertyKeys" : [
+                    "edsType"
+                  ],
+                  "fd:additionalCustomPropertyValues" : [
+                    "range"
+                  ]
                 }
               }
             }
