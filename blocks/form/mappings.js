@@ -14,8 +14,12 @@ export default async function componentDecorator(fd) {
     return module.default;
   }
   if (fd.properties?.edsType === 'range') {
-    const module = await import('./components/range/range.js');
-    return module.default;
+    try {
+      const module = await import('./components/range/range.js');
+      return module.default;
+    } catch (e) {
+      return null;
+    }
   }
   return null;
 }
