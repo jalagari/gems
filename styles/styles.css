@@ -10,8 +10,6 @@
  * governing permissions and limitations under the License.
  */
 
- @import url('/blocks/form/components/range/range.css');
-
 :root {
   /* colors */
   --link-color: #035fe6;

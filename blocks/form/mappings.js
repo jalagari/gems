@@ -1,4 +1,3 @@
-import decorateRange from './components/range/range.js';
 
 /**
  * returns a decorator to decorate the field definition
@@ -15,7 +14,8 @@ export default async function componentDecorator(fd) {
     return module.default;
   }
   if (fd.properties?.edsType === 'range') {
-    return decorateRange;
+    const module = await import('./components/range/range.js');
+    return module.default;
   }
   return null;
 }
