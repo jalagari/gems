@@ -107,27 +107,6 @@
           }
         },
         {
-          "title": "Range",
-          "id": "range",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/fd/components/form/numberinput/v1/numberinput",
-                "template": {
-                  "jcr:title": "Range Input",
-                  "fieldType": "range",
-                  "fd:additionalCustomPropertyKeys" : [
-                    "edsType"
-                  ],
-                  "fd:additionalCustomPropertyValues" : [
-                    "range"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        {
           "title": "Date Picker",
           "id": "date-input",
           "plugins": {

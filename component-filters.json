@@ -43,7 +43,6 @@
       "plain-text",
       "text-input",
       "number-input",
-      "range",
       "date-input",
       "panel",
       "checkbox",
