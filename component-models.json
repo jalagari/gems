@@ -216,6 +216,10 @@
                     {
                         "name": "HDFC Sign Scenario",
                         "value": "8366d120-80b1-4ad2-9f2b-743aa38b2a00"
+                    },
+                    {
+                        "name": "GEMs Session Demo Scenario",
+                        "value": "103a6f97-8de9-45a9-9221-7f33520b64fd"
                     }
                 ]
             },
