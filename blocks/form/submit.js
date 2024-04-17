@@ -4,7 +4,7 @@ export function submitSuccess(e, form) {
   const { payload } = e;
   const redirectUrl = form.dataset.redirectUrl || payload?.body?.redirectUrl;
   const thankYouMsg = form.dataset.thankYouMsg || payload?.body?.thankYouMessage;
-  if (redirectUrl) {
+  if (redirectUrl && false) {
     window.location.assign(encodeURI(redirectUrl));
   } else {
     let thankYouMessage = form.querySelector('.form-message.success-message');
