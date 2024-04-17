@@ -1,0 +1,29 @@
+.cmp-container-container{
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background: var(--background-color-primary);
+}
+
+
+.section.cmp-container-container{
+    padding: 0;
+  }
+
+.cmp-container-wrapper{
+    border-bottom: 1px solid #d9d9d9;
+    padding: 0 35px;
+    line-height: 1.4;
+}
+
+/* stylelint-disable no-descending-specificity */
+.cmp-container-wrapper .cmp-container div {
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.cmp-container-wrapper .cmp-container picture {
+    margin-left: 110px;
+}

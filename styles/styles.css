@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+ @import url('/blocks/form/components/range/range.css');
+
 :root {
   /* colors */
   --link-color: #035fe6;
@@ -201,10 +203,18 @@ main .section {
     max-width: 1200px;
     margin: auto;
   }
+
+  .blank-af-v2 .section > div {
+    max-width: none;
+  }
 }
 
 /* section metadata */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
+}
+
+.field-image1711225643341 picture img {
+  max-width: 71%;
 }

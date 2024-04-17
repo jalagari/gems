@@ -88,6 +88,8 @@ main .form > div:not(:first-child) {
 }
 
 main .form form {
+    width: 1200px;
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(var(--form-columns), minmax(0, 1fr));
     gap: var(--form-field-vert-gap) var(--form-field-horz-gap);
@@ -546,3 +548,8 @@ main form .wizard > .current-wizard-step.panel-wrapper:first-of-type ~ .wizard-b
 main form .wizard > .current-wizard-step.panel-wrapper:last-of-type ~ .wizard-button-wrapper > .wizard-button-next {
     display: none;
 }
+
+main form fieldset > .field-wrapper:not(fieldset):not(.plain-text-wrapper),
+    main form fieldset.field-applicationinformation > .field-wrapper  {
+        grid-column: span 6;
+    }
